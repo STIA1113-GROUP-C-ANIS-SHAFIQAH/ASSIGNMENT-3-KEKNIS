@@ -1,0 +1,135 @@
+package bank;
+import java.util.Scanner;
+public class PersonalAccount {
+	
+	static Scanner sc = new Scanner (System.in);
+	
+	public static void main(String[] args) {
+
+int choose;
+do 
+{
+		System.out.println("__________________________________________________________________________________________________________");
+		System.out.println("############ WELCOME TO GO BANK ISLAM ############");
+		System.out.println("#  1.	Register New User                        #");
+		System.out.println("#  2.	DuitNow                                  #");
+		System.out.println("#  3.	Exit                                     #");
+		System.out.println("##################################################");
+		
+        System.out.print("CHOOSE ONE OF THE OPTION ABOVE : ");
+        choose = sc.nextInt();
+        
+int i;
+switch (choose) 
+{
+   case 1:
+       String[] user = null;
+       Register(user);
+       break;
+   case 2:
+       String DuitNow = null;
+       Duitnow(DuitNow);
+       break;
+   case 3: 
+	String exit = null;
+	exitSystem(exit);
+       break;
+}
+} while (choose != 3);
+}
+
+	static void Register(String [] user) {
+		
+        String [] name = new String[15];
+        String [] acc_number = new String[15];
+        int [] phone_number = new int[10];
+        int a = 1;
+
+        System.out.println("");
+    	System.out.println("XXXXXXXXXXXXXXXXXXX NEW USER XXXXXXXXXXXXXXXXXXXXX");
+    	System.out.println("");
+	    System.out.println("______PLEASE INSERT THE INFORMATION DETAILS______");
+	    System.out.println("");
+        System.out.print(" Full Name : ");
+        name [a]= sc.next();
+        sc.nextLine();
+        System.out.print(" Account Number: ");
+        acc_number [a]= sc.next();
+        System.out.print(" Number Phone: ");
+        phone_number[a] =sc.nextInt();
+        System.out.println("");
+        System.out.println("--------THANK YOU FOR REGISTERING WITH US !---------");
+        System.out.println("-------NOW YOU ARE MEMBER OF GO BANK ISLAM !--------");
+
+	}
+
+	static void Duitnow(Object duitNow) {
+		
+		int addedTime=0;
+		char addtransaction='X',back='X';	 
+		
+	    //Array
+	    int length=10; 
+	    int[] acc= new int[length];
+	    double[] amount1=new double[length];
+	    double total1;
+	    String[] acc1= new String[length];
+	    String[] bankname1= new String[length];
+	    String[] name1= new String[length];
+	    String[] reference1= new String[length];
+	    //Array End
+		
+		System.out.println("");
+		String anotherBank = sc.nextLine();
+		
+		System.out.println("XXXXXXXXXXXXXXXXXXX DuitNow XXXXXXXXXXXXXXXXXXXXX");
+		System.out.println("");
+		
+        for (int i=0; i < length; i++) {
+            i=addedTime;
+		System.out.print("Your Account Number : ");
+		acc[i]= sc.nextInt();
+		System.out.println("");
+	    System.out.println("______PLEASE INSERT THE INFORMATION DETAILS______");
+	    System.out.print("Recipient Bank Name : ");
+	    bankname1[i]=sc.nextLine();
+        sc.nextLine();
+		System.out.print("Recipient Account : ");
+		acc1[i]=sc.nextLine();
+		System.out.print("Recipient Name : ");
+		name1[i]=sc.nextLine();
+		System.out.print("Recipient Reference : ");
+		reference1[i]=sc.nextLine();
+		System.out.print("Amount : RM ");
+		amount1[i]= sc.nextInt();
+			
+		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+		System.out.println("^  *Fee : 2%                                                           ^");
+		System.out.println("^  *Please take note that RM1.00 will be charged for every transaction ^");
+		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+		
+		System.out.println("CHOOSE 1 TO CONTINUE !");
+		int next1 = sc.nextInt();
+		String anotherBank1 = sc.nextLine();
+		
+		System.out.print("Total that have been charged : RM ");
+		 total1 =amount1[i]+((amount1[i]*0.02)+1);
+		System.out.printf("%.2f",  total1);	
+		System.out.println("\n");
+		
+   		System.out.println("");
+        System.out.println("-----------------------------------------------------");
+        System.out.println("          **TRANSACTION SUCCESSFULL**                ");
+        System.out.println("-----------------------------------------------------");
+        System.out.println("");
+        addedTime++;
+        //ADD transaction
+        System.out.print("DO YOU WANT TO ADD ANOTHER TRANSACTION? (Y/N) : ");
+        addtransaction=sc.next().charAt(0);
+        if (addtransaction=='N'||addtransaction=='n') {
+            back='y';
+            i=length;//break the Loop
+		
+	}
+        }
+	}
